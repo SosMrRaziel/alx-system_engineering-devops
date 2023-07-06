@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod og=rw,o+rwx
+chmod 007
