@@ -6,7 +6,7 @@ min=1
 
 while [ $hr -le 12 ]
 do
-    printf("Hours: %d\n", $hr)
+    echo "Hour: $hr"
     while [ $min -le 59 ]
     do
         echo $min
