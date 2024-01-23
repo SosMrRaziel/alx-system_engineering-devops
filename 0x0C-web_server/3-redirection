@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Install Nginx if it is not already installed
+if ! [ -x "$(command -v nginx)" ]; then
+  sudo apt-get update
+  sudo apt-get install nginx -y
+fi
+
+# Create a new server block for the redirection
+sudo tee /etc/nginx/sites-available/redirect_me <<EOF
+server {
+    listen 80;
+    server_name _;
+    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+}
+EOF
+
+# Enable the new server block and disable the default one
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+sudo unlink /etc/nginx/sites-enabled/default
+
+# Test the configuration and reload Nginx
+sudo nginx -t && sudo systemctl reload nginx
