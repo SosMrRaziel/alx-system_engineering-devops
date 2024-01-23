@@ -22,7 +22,7 @@ EOF
 
 # Enable the new server block and disable the default one
 sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-sudo unlink /etc/nginx/sites-enabled/default
+#sudo unlink /etc/nginx/sites-enabled/default
 
 # Test the configuration and reload Nginx
 sudo nginx -t && sudo systemctl reload nginx
