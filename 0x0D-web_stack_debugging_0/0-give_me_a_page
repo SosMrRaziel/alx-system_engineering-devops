@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-run apache on holberton school
-echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 start
+# Restart Apache service
+
+service apache2 restart
