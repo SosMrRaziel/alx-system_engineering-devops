@@ -1,4 +1,1 @@
-#!/usr/bin/env bash
-# Restart Apache service
-
-service apache2 restart
+0x0D. Web stack debugging #0
