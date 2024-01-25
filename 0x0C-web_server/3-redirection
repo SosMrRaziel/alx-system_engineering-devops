@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # Make to /redirect_me is redirecting to another page.
 
-apt-get update
-apt-get install -y nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
 # Create default page
 echo "Hello World!" > /var/www/html/index.html
 
 
-ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 
 # Add redirection
 new_site="https://github.com/SosMrRaziel"
 sed -i "/listen 80 default_server/a rewrite ^/redirect_me $new_site permanent;" /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
