@@ -5,7 +5,7 @@ apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.8
 apt-get install haproxy=2.8.\*
 
-echo "CONFIG=/etc/haproxy/myhaproxy.cfg" | tee /etc/default/haproxy
+echo "CONFIG=/etc/haproxy/myhaproxy.cfg" | tee -a /etc/default/haproxy
 
 echo "
 frontend front
@@ -14,7 +14,7 @@ frontend front
 
 backend back
     balance roundrobin
-    server 376526-web-01 107.23.102.54:80
-    server 376526-web-02 54.160.89.181:80 " | tee /etc/haproxy/myhaproxy.cfg
+    server 376526-web-01 107.23.102.54:80 check
+    server 376526-web-02 54.160.89.181:80 check" | tee /etc/haproxy/myhaproxy.cfg
 
 service haproxy restart
