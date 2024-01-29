@@ -8,7 +8,7 @@ apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.html
 
 # Firewall Configurate server
-ufw allow 'Nginx HTTP'
+#ufw allow 'Nginx HTTP'
 
 f_config="/etc/nginx/sites-available/default"
 # Add redirection
