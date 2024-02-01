@@ -13,7 +13,7 @@ echo "Hello World!" > /var/www/html/index.html
 f_config="/etc/nginx/sites-available/default"
 
 #add Header
-sed -i "/listen 80 default_server/a add_header X-Served-By \"$HOSTNAME\";" $f_config
+sed -i "/listen 80 default_server/a add_header  X-Served-By \"$HOSTNAME\";" $f_config
 
 # Add redirection
 new_site="https://github.com/SosMrRaziel"
