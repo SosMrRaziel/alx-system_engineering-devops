@@ -15,7 +15,7 @@ frontend front
 
 backend back
     balance roundrobin
-    server raziel-web-01 107.23.102.54:80 check
-    server raziel-web-02 54.160.89.181:80 check" | tee -a /etc/haproxy/haproxy.cfg
+    server raziel-web-01 54.87.212.72:80 check
+    server raziel-web-02 34.229.254.154:80 check" | tee -a /etc/haproxy/haproxy.cfg
 
 service haproxy restart
