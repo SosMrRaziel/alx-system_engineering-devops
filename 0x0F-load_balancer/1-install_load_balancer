@@ -10,12 +10,12 @@ echo "CONFIG=/etc/haproxy/haproxy.cfg" | tee -a /etc/default/haproxy
 
 echo "
 frontend front
-        bind *:80
-        default_backend back
+		bind *:80
+		default_backend back
 
 backend back
-        balance roundrobin
-        server raziel-web-01 54.87.212.72:80 check
-        server raziel-web-02 34.229.254.154:80 check" | tee -a /etc/haproxy/haproxy.cfg
+		balance roundrobin
+		server raziel-web-01 54.87.212.72:80 check
+		server raziel-web-02 34.229.254.154:80 check" | tee -a /etc/haproxy/haproxy.cfg
 
 service haproxy restart
