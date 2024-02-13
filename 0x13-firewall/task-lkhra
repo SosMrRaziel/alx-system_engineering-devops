@@ -1,9 +1,0 @@
-#!/bin/bash
-echo "
-*nat
-:PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-COMMIT
-" | sudo tee -a /etc/ufw/before.rules
-
-sudo systemctl restart ufw
