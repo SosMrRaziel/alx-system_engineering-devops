@@ -1,23 +1,16 @@
 #!/bin/bash
 
 # Check if the password argument is provided
-# if [ -z "$1" ]; then
-#   echo "Usage: $0 password"
-#   exit 1
-# fi
-
-# Set the password variable
-password=$1
+if [ -z "$1" ]; then
+  echo "Usage: $0 password"
+  exit 1
+fi
 
 # Get the current date in the format day-month-year
-date=$(date +%d-%m-%Y)
-
-# Set the file names for the dump and the archive
-dump_file=backup.sql
-archive_file=$date.tar.gz
+DATE_FORMAT=$(date +"%d-%m-%Y")
 
 # Dump all the MySQL databases to the dump file
-mysqldump -u root -p$password --all-databases > $dump_file
+mysqldump -u root --password=$1 --all-databases > backup.sql
 
 # Compress the dump file to a tar.gz archive
-tar -czvf $archive_file $dump_file
+tar -czvf "$DATE_FORMAT.tar.gz" backup.sql
