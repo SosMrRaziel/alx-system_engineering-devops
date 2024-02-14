@@ -2,8 +2,8 @@
 
 # Check if the password argument is provided
 if [ -z "$1" ]; then
-  echo "Usage: $0 password"
-  exit 1
+    echo "Usage: $0 password"
+    exit 1
 fi
 
 # Get the current date in the format day-month-year
