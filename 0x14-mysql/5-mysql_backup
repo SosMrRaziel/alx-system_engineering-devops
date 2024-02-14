@@ -6,11 +6,11 @@
 #     exit 1
 # fi
 
-# Get the current date in the format day-month-year
-DATE_FORMAT=$(date +"%d-%m-%Y")
-
 # Dump all the MySQL databases to the dump file
 mysqldump -u root --password=$1 --all-databases > backup.sql
+
+# Get the current date in the format day-month-year
+DATE_FORMAT=$(date +"%d-%m-%Y")
 
 # Compress the dump file to a tar.gz archive
 tar -czvf "$DATE_FORMAT.tar.gz" backup.sql
