@@ -46,8 +46,8 @@ if __name__ == "__main__":
         csvwriter = csv.writer(
                 csvfile, delimiter=",", quotechar='"', quoting=csv.QUOTE_ALL)
         # Write the header row
-        csvwriter.writerow(
-            ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        # csvwriter.writerow(
+        #     ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         # Write the data rows
         for task in todo_list:
             # Write the user id, name, completion status and title of each task
