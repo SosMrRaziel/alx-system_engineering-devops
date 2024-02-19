@@ -1,37 +1,41 @@
 #!/usr/bin/python3
 
-"""[task 0, get rest api]
-"""
+""" a Python script that, using this REST API"""
+
 import requests
-from sys import argv
+import sys
+
+if __name__ == "__main__":
+    employee_id = sys.argv[1]
+    base_url = "https://jsonplaceholder.typicode.com/"
 
 
-def get_user(id):
-    """get the user
-    Args:
-        id (integer: user id]
-    """
-    url = 'https://jsonplaceholder.typicode.com/'
-    users = requests.get(url + 'users', params={'id': id}).json()
-    name = users[0]['name']
-    url = 'https://jsonplaceholder.typicode.com/'
-    todos = requests.get(url + 'todos', params={'userId': id}).json()
-    return([name, todos])
+    response = requests.get(base_url + "users/" + employee_id)
+    employee_name = response.json()["name"]
 
+    # Get the employee's TODO list from the API
+    response = requests.get(base_url + "todos?userId=" + employee_id)
+    todo_list = response.json()
 
-def show(data):
-    name = data[0]
-    todos = data[1]
-    n = 0
-    str_to_print = ''
-    for task in todos:
-        if task['completed'] is True:
-            n += 1
-            str_to_print += '\t ' + task['title'] + '\n'
-    print('Employee {} is done with tasks({}/{}):'.format(name, n, len(todos)))
-    print(str_to_print, end='')
+    # Count the number of completed and total tasks
+    completed_tasks = 0
+    total_tasks = len(todo_list)
 
+    # Store the titles of completed tasks in a list
+    completed_titles = []
 
-if __name__ == '__main__':
-    data = get_user(argv[1])
-    show(data)
+    # Loop through the TODO list
+    for task in todo_list:
+        # If the task is completed, increment the counter and append the title
+        if task["completed"]:
+            completed_tasks += 1
+            completed_titles.append(task["title"])
+
+    # Print the employee's TODO list progress
+    print("Employee {} is done with tasks({}/{})".format(
+                                                            employee_name,
+                                                            completed_tasks,
+                                                            total_tasks))
+
+    for title in completed_titles:
+        print("\t {}".format(title))
