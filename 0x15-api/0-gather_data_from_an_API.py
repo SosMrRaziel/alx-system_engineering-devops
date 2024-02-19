@@ -10,7 +10,7 @@ if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com/"
 
     response = requests.get(base_url + "users/" + employee_id)
-    employee_name = response.json()["name"]
+    employee_name = response.json()["username"]
 
     # Get the employee's TODO list from the API
     response = requests.get(base_url + "todos?userId=" + employee_id)
