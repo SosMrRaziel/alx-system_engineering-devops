@@ -2,9 +2,9 @@
 
 """ a Python script that, using this REST API"""
 
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     employee_id = sys.argv[1]
