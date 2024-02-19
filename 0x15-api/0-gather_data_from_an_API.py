@@ -9,7 +9,6 @@ if __name__ == "__main__":
     employee_id = sys.argv[1]
     base_url = "https://jsonplaceholder.typicode.com/"
 
-
     response = requests.get(base_url + "users/" + employee_id)
     employee_name = response.json()["name"]
 
