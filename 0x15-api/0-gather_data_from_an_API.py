@@ -31,7 +31,7 @@ if __name__ == "__main__":
             completed_titles.append(task["title"])
 
     # Print the employee's TODO list progress
-    print("Employee {} is done with tasks({}/{})".format(
+    print("Employee {} is done with tasks({}/{}):".format(
                                                             employee_name,
                                                             completed_tasks,
                                                             total_tasks))
