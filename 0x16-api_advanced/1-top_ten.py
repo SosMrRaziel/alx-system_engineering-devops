@@ -8,7 +8,7 @@ import requests
 
 
 def top_ten(subreddit):
-    # Set the base URL and the headers for the API request
+    """ print data and title """
     base_url = "https://www.reddit.com/"
     headers = {
         "User-Agent": "ALX:subscribers_counter:v1.0 (by /u/SosMrRaziel)"}
