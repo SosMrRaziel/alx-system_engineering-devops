@@ -9,6 +9,7 @@ import requests
 
 
 def recurse(subreddit, hot_list=[], after=""):
+    """ recursive subreddit, hot_list, after """
     # Base URL for Reddit API
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
     if after:
