@@ -1,4 +1,4 @@
 curl -X GET "https://api.datadoghq.com/api/v1/hosts" \
 -H "Accept: application/json" \
--H "DD-API-KEY: a5e53d4501bb5e0358e11bc1594f0958" \
--H "DD-APPLICATION-KEY: baf4931045a27b24f31977e2ea744c83aa5025c1"
+-H "DD-API-KEY: 2fb899058efcfba1d6e47d544b20536e" \
+-H "DD-APPLICATION-KEY: 7d27bb21f7bd5217ba388e380cdb3f77d8255090"
