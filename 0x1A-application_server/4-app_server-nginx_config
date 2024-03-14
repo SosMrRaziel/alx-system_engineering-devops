@@ -58,7 +58,10 @@ add_header  X-Served-By "raziel-web-01";
                 proxy_pass http://0.0.0.0:5001//number_odd_or_even/$1;
         }
 
-
+        #API
+        location /api/ {
+                proxy_pass http://0.0.0.0:5002;
+        }
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
